@@ -14,7 +14,7 @@ import java.util.List;
 public class Hello {
     public static void main(String[] args) {
         Github github = new Retrofit.Builder().baseUrl("https://api.github.com")
-    //            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(Github.class);
@@ -23,6 +23,7 @@ public class Hello {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> users = response.body();
+                System.out.println("call = " + call.getClass().getCanonicalName());
                 if (users != null) {
                     for (User user : users) {
                         System.out.println(user);
