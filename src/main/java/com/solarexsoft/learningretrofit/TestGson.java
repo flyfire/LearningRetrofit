@@ -100,5 +100,7 @@ public class TestGson {
                 "    }";
         SleepStatisticsModel model = gson.fromJson(sleep, SleepStatisticsModel.class);
         System.out.println(model);
+
+        System.out.println(gson.toJson(null));
     }
 }
